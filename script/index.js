@@ -151,12 +151,13 @@ if(!isAlreadyAddedSelectField){
     addSelectField();
 }
 
-async function convertText(){
-    let inputText = input.value;
-    if(!inputText){
-        inputText = await window.navigator.clipboard.readText();
-    }
+async function convertText(textValue){
+    let inputText = textValue || input.value;
     
+    if(!inputText){
+        return;
+    }
+
     const convertTo = document.querySelectorAll('.select-fields-container select');
     let convertedText = inputText.trim();
 
@@ -174,7 +175,6 @@ async function convertText(){
 }
 
 input.onkeydown = function (e) {
-    console.log(e);
     if(!e.shiftKey && e.key === 'Enter'){
         e.preventDefault();
         convertText();
@@ -196,4 +196,12 @@ function reset() {
     output.value = '';
 
     addSelectField();
+}
+
+async function doMagic(){
+    const textFromClipboard = await window.navigator.clipboard.readText();
+
+    if(textFromClipboard && typeof textFromClipboard === 'string'){
+        convertText(textFromClipboard);
+    }
 }

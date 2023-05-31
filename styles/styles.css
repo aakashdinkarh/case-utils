@@ -14,6 +14,7 @@ button {
 }
 button:hover {
     border-color: black;
+    background-color: #eee;
 }
 textarea {
     padding: 8px;
@@ -33,25 +34,32 @@ textarea:hover {
     padding: 8px 12px;
     color: white;
     background-color: green;
+    border-radius: 4px;
     animation: animate-popover 3s;
-
-    @keyframes animate-popover {
-        0% {
-            top: -100%;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        20% {
-            top: 10px;
-        }
-        80% {
-            top: 10px;
-        }
-        100% {
-            top: -100%;
-        }
+}
+@keyframes animate-popover {
+    0% {
+        top: -100%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    20% {
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    80% {
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    100% {
+        top: -100%;
+        left: 50%;
+        transform: translateX(-50%);
     }
 }
+
 .alert-popover.error {
     background-color: red;
 }
@@ -97,6 +105,13 @@ textarea:hover {
 .warn-btn:hover {
     background-color: #ec971f;
 }
+.magic-btn {
+    background-color: yellowgreen;
+    border-color: #8db43e;
+}
+.magic-btn:hover {
+    background-color: #84b520;
+}
 .btn-lg {
     padding: 1em 2em;
     font-size: large;
@@ -104,6 +119,7 @@ textarea:hover {
 .action-buttons > button:not(:first-of-type) {
     margin-left: 1em;
 }
+
 
 /* select-fields */
 .select-fields-container {
